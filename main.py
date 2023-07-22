@@ -1,3 +1,5 @@
+import os
+
 # Print all todo list features for users 
 print("To add a task use: A")
 print("To view a tasks use: V")
@@ -10,8 +12,9 @@ fileName = 'list.md'
 while True:
     # Make options for user 
     userOption = input("What you want to do?: ")
-    with open(fileName, 'r') as file:
-        userListTasks = file.readlines()
+    if os.path.isfile(fileName):
+        with open(fileName, 'r') as file:
+            userListTasks = file.readlines()
 
     # Add Task
     if userOption == 'A':
